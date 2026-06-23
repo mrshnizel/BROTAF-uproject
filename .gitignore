@@ -1,0 +1,38 @@
+# ============================================================
+#  Unreal Engine .gitignore
+# ============================================================
+# Folders Unreal regenerates automatically — never commit these.
+Binaries/
+Build/
+DerivedDataCache/
+Intermediate/
+Saved/
+.vs/
+.vscode/
+.idea/
+
+# Compiled source / build artifacts
+*.tmp
+*.dll
+*.exe
+*.pdb
+*.lib
+*.app
+
+# Generated IDE / project files
+*.sln
+*.suo
+*.opensdf
+*.sdf
+*.VC.db
+*.VC.opendb
+*.xcodeproj
+*.xcworkspace
+
+# OS junk
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Crash logs
+*.log
