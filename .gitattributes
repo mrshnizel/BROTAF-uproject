@@ -1,51 +1,53 @@
 # ============================================================
-#  Git LFS + File Locking ("Padlock") for Unreal Engine
+#  Git LFS for Unreal Engine
 # ============================================================
 # Every pattern below is:
 #   filter/diff/merge=lfs  -> stored in Git LFS, not as text in git
 #   -text                  -> never auto-convert line endings (binary)
-#   lockable               -> file is READ-ONLY on disk until you lock it
 #
-# "lockable" is the padlock. Locked-by-someone-else = you cannot edit it,
-# which is what stops two people from overwriting the same asset.
+# NOTE: the "lockable" flag was intentionally removed so files stay
+# WRITABLE on disk. This lets Multi-User Editing persist assets and
+# lets both people edit freely. Git LFS locking still WORKS as
+# coordination (git lfs lock / unlock, and locksverify on push) --
+# it just no longer forces files read-only.
 # ------------------------------------------------------------
 
 # ---- Unreal core binary assets ----
-*.uasset  filter=lfs diff=lfs merge=lfs -text lockable
-*.umap    filter=lfs diff=lfs merge=lfs -text lockable
+*.uasset  filter=lfs diff=lfs merge=lfs -text
+*.umap    filter=lfs diff=lfs merge=lfs -text
 
 # ---- 3D / models ----
-*.fbx     filter=lfs diff=lfs merge=lfs -text lockable
-*.obj     filter=lfs diff=lfs merge=lfs -text lockable
-*.blend   filter=lfs diff=lfs merge=lfs -text lockable
-*.3ds     filter=lfs diff=lfs merge=lfs -text lockable
+*.fbx     filter=lfs diff=lfs merge=lfs -text
+*.obj     filter=lfs diff=lfs merge=lfs -text
+*.blend   filter=lfs diff=lfs merge=lfs -text
+*.3ds     filter=lfs diff=lfs merge=lfs -text
 
 # ---- Textures / images ----
-*.png     filter=lfs diff=lfs merge=lfs -text lockable
-*.jpg     filter=lfs diff=lfs merge=lfs -text lockable
-*.jpeg    filter=lfs diff=lfs merge=lfs -text lockable
-*.tga     filter=lfs diff=lfs merge=lfs -text lockable
-*.bmp     filter=lfs diff=lfs merge=lfs -text lockable
-*.psd     filter=lfs diff=lfs merge=lfs -text lockable
-*.exr     filter=lfs diff=lfs merge=lfs -text lockable
-*.hdr     filter=lfs diff=lfs merge=lfs -text lockable
-*.tif     filter=lfs diff=lfs merge=lfs -text lockable
-*.tiff    filter=lfs diff=lfs merge=lfs -text lockable
+*.png     filter=lfs diff=lfs merge=lfs -text
+*.jpg     filter=lfs diff=lfs merge=lfs -text
+*.jpeg    filter=lfs diff=lfs merge=lfs -text
+*.tga     filter=lfs diff=lfs merge=lfs -text
+*.bmp     filter=lfs diff=lfs merge=lfs -text
+*.psd     filter=lfs diff=lfs merge=lfs -text
+*.exr     filter=lfs diff=lfs merge=lfs -text
+*.hdr     filter=lfs diff=lfs merge=lfs -text
+*.tif     filter=lfs diff=lfs merge=lfs -text
+*.tiff    filter=lfs diff=lfs merge=lfs -text
 
 # ---- Audio ----
-*.wav     filter=lfs diff=lfs merge=lfs -text lockable
-*.mp3     filter=lfs diff=lfs merge=lfs -text lockable
-*.ogg     filter=lfs diff=lfs merge=lfs -text lockable
-*.flac    filter=lfs diff=lfs merge=lfs -text lockable
+*.wav     filter=lfs diff=lfs merge=lfs -text
+*.mp3     filter=lfs diff=lfs merge=lfs -text
+*.ogg     filter=lfs diff=lfs merge=lfs -text
+*.flac    filter=lfs diff=lfs merge=lfs -text
 
 # ---- Video ----
-*.mp4     filter=lfs diff=lfs merge=lfs -text lockable
-*.mov     filter=lfs diff=lfs merge=lfs -text lockable
-*.avi     filter=lfs diff=lfs merge=lfs -text lockable
+*.mp4     filter=lfs diff=lfs merge=lfs -text
+*.mov     filter=lfs diff=lfs merge=lfs -text
+*.avi     filter=lfs diff=lfs merge=lfs -text
 
 # ---- Fonts ----
-*.ttf     filter=lfs diff=lfs merge=lfs -text lockable
-*.otf     filter=lfs diff=lfs merge=lfs -text lockable
+*.ttf     filter=lfs diff=lfs merge=lfs -text
+*.otf     filter=lfs diff=lfs merge=lfs -text
 
 # ---- Misc binaries ----
-*.bin     filter=lfs diff=lfs merge=lfs -text lockable
+*.bin     filter=lfs diff=lfs merge=lfs -text
